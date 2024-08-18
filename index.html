@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矩陣教學網站 - 首頁</title>
+    <link rel="icon" href="img/icon.png" type="image/png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<script>
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0
+        );
+    }
+    
+    function handleScroll() {
+        var boxes = document.querySelectorAll('.box');
+        boxes.forEach(function(box) {
+            if (isElementInViewport(box) && !box.classList.contains('visible')) {
+                box.classList.add('visible');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', function() {
+        setTimeout(handleScroll, 100);
+    });
+</script>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html">
+                <img src="img/icon.png" alt="Icon" class="header-icon">
+            </a>
+            <a href="index.html" class="uimath">UIMATH<sup>®</sup></a>
+        </div>
+        <nav class="header-right">
+            <ul>
+                <li><a href="#matrix-basics">矩陣基本概念</a></li>
+                <li><a href="#inverse-matrix">逆矩陣</a></li>
+                <li><a href="#geometric-transformations">幾何變換</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>變換矩陣教學網站</h1>
+
+        <div class="box" id="matrix-basics">
+            <h2>矩陣基本概念</h2>
+            <ul>
+                <li>矩陣是甚麼</li>
+                <li>矩陣運算：包括加法、減法、數量乘法</li>
+            </ul>
+        </div>
+
+        <div class="box" id="inverse-matrix">
+            <h2>逆矩陣</h2>
+            <p>逆矩陣是與給定矩陣相乘後結果為單位矩陣的矩陣。只有方陣才有逆矩陣。</p>
+        </div>
+
+        <div class="box" id="geometric-transformations">
+            <h2>幾何變換</h2>
+            <ul>
+                <li>介紹</li>
+                <li><a href="scaling_matrix.html" target="_blank">scale矩陣</a></li>
+                <li><a href="rotation_matrix.html" target="_blank">旋轉矩陣</a></li>
+                <li><a href="reflection_matrix.html" target="_blank">鏡射矩陣</a></li>
+                <li><a href="translation_matrix.html" target="_blank">推移矩陣</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 變換矩陣教學網站</p>
+    </footer>
+</body>
+</html>
